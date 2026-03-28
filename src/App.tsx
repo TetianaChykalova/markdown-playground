@@ -2,6 +2,8 @@ import { useEffect, useRef } from 'react';
 import styles from './App.module.scss';
 import { useMarkdownEditor } from './store/store';
 
+import './styles/global.scss';
+
 function App() {
   const loading = useMarkdownEditor((state) => state.loading);
   const error = useMarkdownEditor((state) => state.error);
