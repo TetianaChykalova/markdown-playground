@@ -1,13 +1,13 @@
 import { useEffect, useRef } from 'react';
 import styles from './App.module.scss';
 import { useMarkdownEditor } from './store/store';
+import MarkdownEditor from './components/MarkdownEditor';
 
 import './styles/global.scss';
 
 function App() {
   const loading = useMarkdownEditor((state) => state.loading);
   const error = useMarkdownEditor((state) => state.error);
-  const files = useMarkdownEditor((state) => state.files);
   const initialized = useRef<null | boolean>(null);
 
   useEffect(() => {
@@ -28,14 +28,7 @@ function App() {
     <>
       <header className={styles.title}>Markdown Playground</header>
       <main>
-        {
-          files.map(file => (
-            <div key={file.id}>
-              <p>{file.title}</p>
-              <textarea defaultValue={file.content} />
-            </div>
-          ))
-        }
+        <MarkdownEditor />
       </main>
       <footer>Links</footer>
     </>

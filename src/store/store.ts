@@ -5,7 +5,7 @@ import { DEFAULT_CONTENT, DEFAULT_TITLE } from "./constants";
 
 interface MarkdownEditorData {
   files: MarkdownEditorFile[];
-  activeFileId: string | null;
+  activeFile: MarkdownEditorFile | null;
   fileState: "editing" | "saved";
   error: string | null;
   loading: boolean;
@@ -23,7 +23,7 @@ type MarkdownEditorStore = MarkdownEditorData & {
 
 const initialState: MarkdownEditorData = {
   files: [],
-  activeFileId: null,
+  activeFile: null,
   fileState: "saved",
   error: null,
   loading: false,
@@ -71,7 +71,7 @@ export const useMarkdownEditor = create<MarkdownEditorStore>((set) => ({
 
     set({
       files,
-      activeFileId: activeFile.id,
+      activeFile: activeFile,
       history: {
         past: [],
         current: activeFile.content,
