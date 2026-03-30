@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react';
-import styles from './App.module.scss';
 import { useMarkdownEditor } from './store/store';
 import MarkdownEditor from './components/MarkdownEditor';
 
 import './styles/global.scss';
+import Header from './components/Header';
 
 function App() {
   const loading = useMarkdownEditor((state) => state.loading);
@@ -26,7 +26,7 @@ function App() {
 
   return (
     <>
-      <header className={styles.title}>Markdown Playground</header>
+      <Header />
       <main>
         <MarkdownEditor />
       </main>
