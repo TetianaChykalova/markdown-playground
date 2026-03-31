@@ -1,0 +1,10 @@
+@use "styles/mixins";
+
+.sidebar {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  width: 400px;
+  height: calc(100dvh - var(--header-height));
+  background-color: var(--background-sidebar-color);
+}
