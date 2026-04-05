@@ -1,12 +1,13 @@
-import { create } from "zustand";
-import type { MarkdownEditorFile } from "../utils/types";
-import { db } from "../db/db";
-import { DEFAULT_CONTENT, DEFAULT_TITLE } from "./constants";
+import { create } from 'zustand';
+
+import { db } from '../db/db';
+import type { MarkdownEditorFile } from '../utils/types';
+import { DEFAULT_CONTENT, DEFAULT_TITLE } from './constants';
 
 interface MarkdownEditorData {
   files: MarkdownEditorFile[];
   activeFile: MarkdownEditorFile | null;
-  fileState: "editing" | "saved";
+  fileState: 'editing' | 'saved';
   error: string | null;
   loading: boolean;
   history: {
@@ -24,12 +25,12 @@ type MarkdownEditorStore = MarkdownEditorData & {
 const initialState: MarkdownEditorData = {
   files: [],
   activeFile: null,
-  fileState: "saved",
+  fileState: 'saved',
   error: null,
   loading: false,
   history: {
     past: [],
-    current: "",
+    current: '',
     future: [],
   },
 };
@@ -64,7 +65,7 @@ export const useMarkdownEditor = create<MarkdownEditorStore>((set) => ({
 
     if (!activeFile) {
       set({
-        error: "something went wrong",
+        error: 'something went wrong',
         loading: false,
       });
     }

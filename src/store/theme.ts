@@ -1,7 +1,8 @@
-import { create } from "zustand";
-import { persist } from "zustand/middleware";
-import type { Theme } from "./types";
-import { getOSTheme } from "./helpers";
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
+
+import { getOSTheme } from './helpers';
+import type { Theme } from './types';
 
 interface ThemeData {
   theme: Theme;
@@ -21,6 +22,6 @@ export const useTheme = create<ThemeStore>()(
       ...initState,
       setTheme: (theme: Theme) => set({ theme }),
     }),
-    { name: 'markdown-theme' },
-  ),
+    { name: 'markdown-theme' }
+  )
 );

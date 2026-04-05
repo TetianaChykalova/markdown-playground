@@ -1,13 +1,14 @@
 import Markdown from 'react-markdown';
 
-import styles from './MarkdownEditor.module.scss';
 import { useMarkdownEditor } from '@/store/store';
+
+import styles from './MarkdownEditor.module.scss';
 
 export default function MarkdownEditor() {
   const activeFile = useMarkdownEditor((state) => state.activeFile);
 
   if (!activeFile) {
-    return <p>loading file...</p>
+    return <p>loading file...</p>;
   }
 
   return (
@@ -18,10 +19,8 @@ export default function MarkdownEditor() {
       </div>
       <div>
         <h3>PREVIEW</h3>
-        <div>
-          {<Markdown>{activeFile.content}</Markdown>}
-        </div>
+        <div>{<Markdown>{activeFile.content}</Markdown>}</div>
       </div>
     </div>
-  )
+  );
 }

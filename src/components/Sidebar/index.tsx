@@ -1,12 +1,13 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import styles from './Sidebar.module.scss';
-import ToggleTheme from './components/ToggleTheme';
+import { AnimatePresence, motion } from 'framer-motion';
+
 import AddFile from './components/AddFile';
 import EditFile from './components/EditFile';
 import FilesList from './components/FilesList';
+import ToggleTheme from './components/ToggleTheme';
+
+import styles from './Sidebar.module.scss';
 
 export default function Sidebar({ open }: { open: boolean }) {
-
   return (
     <AnimatePresence>
       {open && (
@@ -30,5 +31,5 @@ export default function Sidebar({ open }: { open: boolean }) {
         </motion.div>
       )}
     </AnimatePresence>
-  )
+  );
 }

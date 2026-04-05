@@ -1,5 +1,3 @@
 export default function AddFile() {
-  return (
-    <div>Add file</div>
-  )
+  return <div>Add file</div>;
 }

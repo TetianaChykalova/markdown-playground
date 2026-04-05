@@ -1,8 +1,10 @@
 import { useEffect, useRef } from 'react';
-import { useMarkdownEditor } from './store/store';
+
 import MarkdownEditor from './components/MarkdownEditor';
+import { useMarkdownEditor } from './store/store';
 
 import './styles/global.scss';
+
 import Header from './components/Header';
 import ThemeProvider from './providers/ThemeProvider';
 
@@ -18,11 +20,11 @@ function App() {
   }, []);
 
   if (error) {
-    return <p>{error}</p>
+    return <p>{error}</p>;
   }
 
   if (loading) {
-    return <p>Loading...</p>
+    return <p>Loading...</p>;
   }
 
   return (
@@ -33,7 +35,7 @@ function App() {
       </main>
       <footer>Links</footer>
     </ThemeProvider>
-  )
+  );
 }
 
-export default App
+export default App;

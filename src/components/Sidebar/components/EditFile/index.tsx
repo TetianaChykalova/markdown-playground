@@ -1,5 +1,3 @@
 export default function EditFile() {
-  return (
-    <div>Edit file</div>
-  )
+  return <div>Edit file</div>;
 }
