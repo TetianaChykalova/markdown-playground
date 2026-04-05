@@ -1,5 +1,9 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './Sidebar.module.scss';
+import ToggleTheme from './components/ToggleTheme';
+import AddFile from './components/AddFile';
+import EditFile from './components/EditFile';
+import FilesList from './components/FilesList';
 
 export default function Sidebar({ open }: { open: boolean }) {
 
@@ -13,7 +17,16 @@ export default function Sidebar({ open }: { open: boolean }) {
           exit={{ x: '-100%', opacity: 0 }}
           transition={{ ease: 'easeOut', duration: 0.4 }}
         >
-          SIDEBAR
+          <div className={styles.content}>
+            <div className={styles.files}>
+              <AddFile />
+              <hr />
+              <EditFile />
+              <hr />
+              <FilesList />
+            </div>
+            <ToggleTheme />
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

@@ -8,3 +8,18 @@
   height: calc(100dvh - var(--header-height));
   background-color: var(--background-sidebar-color);
 }
+
+.content {
+  @include mixins.flex-column;
+  height: 100%;
+  max-height: 100%;
+  justify-content: space-between;
+  padding: 35px 30px;
+  gap: 40px;
+}
+
+.files {
+  overflow-y: auto;
+  scrollbar-color: var(--text-primary-color) var(--text-secondary-color);
+  scrollbar-width: thin;
+}

@@ -4,6 +4,7 @@ import MarkdownEditor from './components/MarkdownEditor';
 
 import './styles/global.scss';
 import Header from './components/Header';
+import ThemeProvider from './providers/ThemeProvider';
 
 function App() {
   const loading = useMarkdownEditor((state) => state.loading);
@@ -25,13 +26,13 @@ function App() {
   }
 
   return (
-    <>
+    <ThemeProvider>
       <Header />
       <main>
         <MarkdownEditor />
       </main>
       <footer>Links</footer>
-    </>
+    </ThemeProvider>
   )
 }
 
