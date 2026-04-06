@@ -5,8 +5,11 @@ import { useMarkdownEditor } from './store/store';
 
 import './styles/global.scss';
 
+import Footer from './components/Footer';
 import Header from './components/Header';
 import ThemeProvider from './providers/ThemeProvider';
+
+import styles from './App.module.scss';
 
 function App() {
   const loading = useMarkdownEditor((state) => state.loading);
@@ -29,11 +32,13 @@ function App() {
 
   return (
     <ThemeProvider>
-      <Header />
-      <main>
-        <MarkdownEditor />
-      </main>
-      <footer>Links</footer>
+      <div className={styles.root}>
+        <Header />
+        <main className={styles.content}>
+          <MarkdownEditor />
+        </main>
+        <Footer />
+      </div>
     </ThemeProvider>
   );
 }

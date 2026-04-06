@@ -1,5 +1,12 @@
 @use 'styles/mixins';
 
+.editor {
+  @include mixins.flex-column;
+
+  gap: 10px;
+  padding: 20px;
+}
+
 .wrapper {
   @include mixins.flex-row;
 }

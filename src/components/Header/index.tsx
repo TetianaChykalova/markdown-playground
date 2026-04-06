@@ -26,7 +26,7 @@ export default function Header() {
         </div>
         <p className={styles.title}>Markdown Playground</p>
       </header>
-      <Sidebar open={open} />
+      <Sidebar open={open} closeSidebar={() => setOpen(false)} />
     </>
   );
 }

@@ -1,0 +1,17 @@
+@use 'styles/mixins';
+
+.footer {
+  @include mixins.flex-column;
+
+  align-items: flex-end;
+  justify-content: center;
+  height: var(--footer-height);
+  padding: 0 30px;
+  background-color: var(--background-sections-color);
+}
+
+.links {
+  a {
+    color: var(--text-secondary-color);
+  }
+}

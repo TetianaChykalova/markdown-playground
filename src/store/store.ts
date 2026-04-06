@@ -19,7 +19,9 @@ interface MarkdownEditorData {
 
 type MarkdownEditorStore = MarkdownEditorData & {
   init: () => void;
-  resetData: () => void;
+  setActiveFile: (id: number) => void;
+  addFile: () => void;
+  renameFile: (newTitle: string) => void;
 };
 
 const initialState: MarkdownEditorData = {
@@ -35,7 +37,7 @@ const initialState: MarkdownEditorData = {
   },
 };
 
-export const useMarkdownEditor = create<MarkdownEditorStore>((set) => ({
+export const useMarkdownEditor = create<MarkdownEditorStore>((set, get) => ({
   ...initialState,
 
   init: async () => {
@@ -68,6 +70,7 @@ export const useMarkdownEditor = create<MarkdownEditorStore>((set) => ({
         error: 'something went wrong',
         loading: false,
       });
+      return;
     }
 
     set({
@@ -82,5 +85,94 @@ export const useMarkdownEditor = create<MarkdownEditorStore>((set) => ({
     });
   },
 
-  resetData: () => set(initialState),
+  setActiveFile: (id: number) => {
+    set({
+      loading: true,
+    });
+    const activeFile = useMarkdownEditor.getState().files.find((f) => f.id === id);
+    if (!activeFile) {
+      set({
+        error: 'File not found',
+        loading: false,
+      });
+      return;
+    }
+    set({
+      activeFile,
+      history: {
+        past: [],
+        current: activeFile.content,
+        future: [],
+      },
+      loading: false,
+    });
+  },
+
+  addFile: async () => {
+    set({
+      loading: true,
+    });
+
+    let newFilId: number;
+
+    try {
+      newFilId = await db.files.add({
+        title: DEFAULT_TITLE,
+        content: DEFAULT_CONTENT,
+        createdAt: Date.now(),
+        updatedAt: Date.now(),
+      });
+    } catch (error) {
+      set({
+        error: error as string,
+        loading: false,
+      });
+      console.error(error);
+    }
+
+    const files = await db.files.toArray();
+    const newFile = files.find((f) => f.id === newFilId);
+
+    if (!newFile) {
+      set({
+        error: 'something went wrong',
+        loading: false,
+      });
+      return;
+    }
+
+    set({
+      files,
+      activeFile: newFile,
+      history: {
+        past: [],
+        current: newFile.content,
+        future: [],
+      },
+      loading: false,
+    });
+  },
+
+  renameFile: async (newTitle: string) => {
+    set({
+      loading: true,
+    });
+
+    const { activeFile, files } = get();
+    if (!activeFile) {
+      set({
+        loading: false,
+      });
+      return;
+    }
+
+    const updatedAt = Date.now();
+    await db.files.update(activeFile.id, { title: newTitle, updatedAt });
+
+    set({
+      loading: false,
+      files: files.map((f) => (f.id === activeFile.id ? { ...f, title: newTitle, updatedAt } : f)),
+      activeFile: { ...activeFile, title: newTitle, updatedAt },
+    });
+  },
 }));

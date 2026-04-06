@@ -1,3 +1,7 @@
+import { useMarkdownEditor } from '@/store/store';
+
 export default function AddFile() {
-  return <div>Add file</div>;
+  const addFile = useMarkdownEditor((state) => state.addFile);
+
+  return <button onClick={addFile}>Add file</button>;
 }

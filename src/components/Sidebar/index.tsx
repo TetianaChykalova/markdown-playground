@@ -7,7 +7,7 @@ import ToggleTheme from './components/ToggleTheme';
 
 import styles from './Sidebar.module.scss';
 
-export default function Sidebar({ open }: { open: boolean }) {
+export default function Sidebar({ open, closeSidebar }: { open: boolean; closeSidebar: () => void }) {
   return (
     <AnimatePresence>
       {open && (
@@ -24,7 +24,7 @@ export default function Sidebar({ open }: { open: boolean }) {
               <hr />
               <EditFile />
               <hr />
-              <FilesList />
+              <FilesList closeSidebar={closeSidebar} />
             </div>
             <ToggleTheme />
           </div>

@@ -1,5 +1,5 @@
 export interface MarkdownEditorFile {
-  id: string;
+  id: number;
   title: string;
   content: string;
   createdAt: number;
