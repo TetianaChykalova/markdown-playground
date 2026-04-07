@@ -1,34 +1,33 @@
-import Markdown from 'react-markdown';
+import { useDebouncedCallback } from 'use-debounce';
 
 import { useMarkdownEditor } from '@/store/store';
 
+import Editor from './components/Editor';
 import FileName from './components/FileName';
+import SaveFile from './components/SaveFile';
 
 import styles from './MarkdownEditor.module.scss';
 
 export default function MarkdownEditor() {
-  const activeFile = useMarkdownEditor((state) => state.activeFile);
-  const loading = useMarkdownEditor((state) => state.loading);
+  const activeFile = useMarkdownEditor((s) => s.activeFile);
+  const loading = useMarkdownEditor((s) => s.loading);
+  const editFile = useMarkdownEditor((s) => s.editFile);
 
   if (!activeFile || loading) {
     return <p>loading file...</p>;
   }
 
+  const handleChange = useDebouncedCallback((newValue: string) => {
+    editFile(newValue);
+  }, 500);
+
   return (
     <div className={styles.editor}>
       <div>
         <FileName />
+        <SaveFile />
       </div>
-      <div className={styles.wrapper}>
-        <div>
-          <h3>MARKDOWN</h3>
-          <textarea defaultValue={activeFile.content} />
-        </div>
-        <div>
-          <h3>PREVIEW</h3>
-          <div>{<Markdown>{activeFile.content}</Markdown>}</div>
-        </div>
-      </div>
+      <Editor activeFile={activeFile} handleChange={handleChange} key={activeFile.id} />
     </div>
   );
 }

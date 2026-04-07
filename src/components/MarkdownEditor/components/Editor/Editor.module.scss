@@ -1,0 +1,18 @@
+@use 'styles/mixins';
+
+.wrapper {
+  @include mixins.flex-row;
+
+  gap: 20px;
+  width: calc(100dvw - 20px * 2);
+  height: 100%;
+}
+
+.space {
+  flex: 0 1 50%;
+
+  textarea {
+    width: 100%;
+    height: calc(100% - 22px);
+  }
+}

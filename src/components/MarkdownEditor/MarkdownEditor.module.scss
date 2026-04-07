@@ -4,9 +4,6 @@
   @include mixins.flex-column;
 
   gap: 10px;
+  height: 100%;
   padding: 20px;
-}
-
-.wrapper {
-  @include mixins.flex-row;
 }

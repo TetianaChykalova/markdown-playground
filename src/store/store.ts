@@ -21,6 +21,8 @@ type MarkdownEditorStore = MarkdownEditorData & {
   init: () => void;
   setActiveFile: (id: number) => void;
   addFile: () => void;
+  editFile: (content: string) => void;
+  updateFile: () => void;
   renameFile: (newTitle: string) => void;
 };
 
@@ -173,6 +175,52 @@ export const useMarkdownEditor = create<MarkdownEditorStore>((set, get) => ({
       loading: false,
       files: files.map((f) => (f.id === activeFile.id ? { ...f, title: newTitle, updatedAt } : f)),
       activeFile: { ...activeFile, title: newTitle, updatedAt },
+    });
+  },
+
+  editFile: (content: string) => {
+    const activeFile = get().activeFile;
+    if (!activeFile) {
+      set({
+        error: 'No active file to update',
+      });
+      return;
+    }
+
+    set({
+      activeFile: { ...activeFile, content },
+      fileState: 'editing',
+      history: {
+        past: [...get().history.past, get().history.current],
+        current: content,
+        future: [],
+      },
+    });
+  },
+
+  updateFile: async () => {
+    set({
+      loading: true,
+    });
+
+    const { activeFile } = get();
+    if (!activeFile) {
+      set({
+        loading: false,
+      });
+      return;
+    }
+
+    const updatedAt = Date.now();
+    await db.files.update(activeFile.id, { content: activeFile.content, updatedAt });
+
+    const files = await db.files.toArray();
+
+    set({
+      loading: false,
+      fileState: 'saved',
+      files,
+      activeFile: { ...activeFile, updatedAt },
     });
   },
 }));
