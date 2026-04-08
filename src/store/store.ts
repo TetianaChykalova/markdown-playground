@@ -24,6 +24,7 @@ type MarkdownEditorStore = MarkdownEditorData & {
   editFile: (content: string) => void;
   updateFile: () => void;
   renameFile: (newTitle: string) => void;
+  deleteFile: (id: number) => void;
 };
 
 const initialState: MarkdownEditorData = {
@@ -221,6 +222,31 @@ export const useMarkdownEditor = create<MarkdownEditorStore>((set, get) => ({
       fileState: 'saved',
       files,
       activeFile: { ...activeFile, updatedAt },
+    });
+  },
+
+  deleteFile: async (id: number) => {
+    set({
+      loading: true,
+    });
+
+    let files = await db.files.toArray();
+
+    if (files.length === 1) {
+      set({
+        error: 'At least one file must exist',
+        loading: false,
+      });
+      return;
+    }
+
+    await db.files.delete(id);
+    files = await db.files.toArray();
+
+    set({
+      loading: false,
+      files,
+      activeFile: files[0],
     });
   },
 }));

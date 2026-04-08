@@ -1,7 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 
 import AddFile from './components/AddFile';
-import EditFile from './components/EditFile';
 import FilesList from './components/FilesList';
 import ToggleTheme from './components/ToggleTheme';
 
@@ -21,8 +20,6 @@ export default function Sidebar({ open, closeSidebar }: { open: boolean; closeSi
           <div className={styles.content}>
             <div className={styles.files}>
               <AddFile />
-              <hr />
-              <EditFile />
               <hr />
               <FilesList closeSidebar={closeSidebar} />
             </div>

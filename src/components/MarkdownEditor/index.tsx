@@ -2,6 +2,7 @@ import { useDebouncedCallback } from 'use-debounce';
 
 import { useMarkdownEditor } from '@/store/store';
 
+import DeleteFile from './components/DeleteFile';
 import Editor from './components/Editor';
 import FileName from './components/FileName';
 import SaveFile from './components/SaveFile';
@@ -26,6 +27,7 @@ export default function MarkdownEditor() {
       <div>
         <FileName />
         <SaveFile />
+        <DeleteFile />
       </div>
       <Editor activeFile={activeFile} handleChange={handleChange} key={activeFile.id} />
     </div>
