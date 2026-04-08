@@ -21,7 +21,16 @@
 }
 
 .files {
+  @include mixins.flex-column;
+
   scrollbar-color: var(--text-primary-color) var(--text-secondary-color);
   scrollbar-width: thin;
   overflow-y: auto;
+  gap: 25px;
+
+  hr {
+    height: 1px;
+    border: none;
+    background-color: var(--text-secondary-color);
+  }
 }

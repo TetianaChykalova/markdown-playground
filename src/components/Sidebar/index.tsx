@@ -23,7 +23,10 @@ export default function Sidebar({ open, closeSidebar }: { open: boolean; closeSi
               <hr />
               <FilesList closeSidebar={closeSidebar} />
             </div>
-            <ToggleTheme />
+            <div>
+              {/* remove all files */}
+              <ToggleTheme />
+            </div>
           </div>
         </motion.div>
       )}

@@ -11,6 +11,7 @@
 }
 
 .menu {
+  cursor: pointer;
   width: fit-content;
   padding: 10px;
 
@@ -18,7 +19,7 @@
     position: relative;
     width: 40px;
     height: 3px;
-    border-radius: 5px;
+    border-radius: 4px;
     background-color: var(--text-secondary-color);
     transition: all 0.2s ease;
 
@@ -60,6 +61,6 @@
 }
 
 .title {
+  font-family: Righteous, 'Roboto Condensed', sans-serif;
   color: var(--text-accent-color);
-  font-family: 'Righteous', 'Roboto Condensed', 'sans-serif';
 }

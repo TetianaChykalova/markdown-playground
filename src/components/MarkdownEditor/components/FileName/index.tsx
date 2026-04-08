@@ -1,5 +1,7 @@
 import { useMarkdownEditor } from '@/store/store';
 
+import styles from './FileName.module.scss';
+
 export default function FileName() {
   const activeFile = useMarkdownEditor((state) => state.activeFile);
   const renameFile = useMarkdownEditor((state) => state.renameFile);
@@ -12,7 +14,7 @@ export default function FileName() {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <input
         key={activeFile.updatedAt}
         name='file-name'
@@ -20,6 +22,7 @@ export default function FileName() {
         defaultValue={activeFile.title}
         onBlur={(e) => handleBlur(e)}
       />
+      <p>.md</p>
     </div>
   );
 }

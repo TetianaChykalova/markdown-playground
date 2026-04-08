@@ -1,7 +1,12 @@
 import { useMarkdownEditor } from '@/store/store';
+import Button from '@/ui/Button';
 
 export default function AddFile() {
   const addFile = useMarkdownEditor((state) => state.addFile);
 
-  return <button onClick={addFile}>Add file</button>;
+  return (
+    <Button onClick={addFile} buttonType='text'>
+      Add file
+    </Button>
+  );
 }

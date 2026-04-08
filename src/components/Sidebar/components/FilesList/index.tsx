@@ -1,4 +1,5 @@
 import { useMarkdownEditor } from '@/store/store';
+import Button from '@/ui/Button';
 
 import styles from './FilesList.module.scss';
 
@@ -14,9 +15,9 @@ export default function FilesList({ closeSidebar }: { closeSidebar: () => void }
   return (
     <div className={styles.content}>
       {files.map((file) => (
-        <button key={file.id} onClick={() => handleClick(file.id)}>
+        <Button key={file.id} onClick={() => handleClick(file.id)} buttonType='list-item'>
           {file.title}
-        </button>
+        </Button>
       ))}
     </div>
   );

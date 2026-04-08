@@ -24,10 +24,12 @@ export default function MarkdownEditor() {
 
   return (
     <div className={styles.editor}>
-      <div>
+      <div className={styles.panel}>
         <FileName />
-        <SaveFile />
-        <DeleteFile />
+        <div className={styles.actions}>
+          <SaveFile />
+          <DeleteFile />
+        </div>
       </div>
       <Editor activeFile={activeFile} handleChange={handleChange} key={activeFile.id} />
     </div>

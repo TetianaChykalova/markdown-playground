@@ -1,0 +1,22 @@
+@use 'styles/mixins';
+
+.container {
+  @include mixins.flex-row;
+
+  align-items: flex-end;
+  height: 25px;
+
+  input {
+    height: 100%;
+    padding-inline: 4px;
+    border: none;
+    border-radius: 4px;
+    color: var(--text-secondary-color);
+    background-color: var(--background-accent-color);
+  }
+
+  p {
+    line-height: 100%;
+    color: var(--text-secondary-color);
+  }
+}

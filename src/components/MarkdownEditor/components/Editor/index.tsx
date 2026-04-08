@@ -28,7 +28,7 @@ export default function Editor({
       </div>
       <div className={styles.space}>
         <h3>PREVIEW</h3>
-        <div>{<Markdown>{localContent}</Markdown>}</div>
+        <div className={styles.preview}>{<Markdown>{localContent}</Markdown>}</div>
       </div>
     </div>
   );

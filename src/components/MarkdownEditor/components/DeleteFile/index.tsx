@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { useMarkdownEditor } from '@/store/store';
+import Button from '@/ui/Button';
 
 export default function DeleteFile() {
   const activeFile = useMarkdownEditor((s) => s.activeFile);
@@ -13,7 +14,9 @@ export default function DeleteFile() {
 
   return (
     <>
-      <button onClick={() => setOpenConfirmPopup(true)}>{loading ? 'Deleting file...' : 'Delete file'}</button>
+      <Button onClick={() => setOpenConfirmPopup(true)} buttonType='danger-action'>
+        {loading ? 'Deleting file...' : 'Delete file'}
+      </Button>
       {openConfirmPopup && (
         <dialog closedby='none' open>
           <p>Are you sure you want to delete this file?</p>

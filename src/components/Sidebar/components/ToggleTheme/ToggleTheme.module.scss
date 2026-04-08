@@ -1,0 +1,41 @@
+@use 'styles/mixins';
+
+.container {
+  @include mixins.flex-row;
+
+  gap: 4px;
+  justify-content: flex-end;
+  height: 20px;
+
+  svg {
+    height: 100%;
+  }
+}
+
+.button {
+  position: relative;
+  width: 40px;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--background-accent-color);
+}
+
+.circle {
+  position: absolute;
+  top: 1px;
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--text-accent-color);
+  transition: all 0.4s ease;
+}
+
+.circle[data-theme='light'] {
+  transform: translateX(1px);
+}
+
+.circle[data-theme='dark'] {
+  transform: translateX(21px);
+}

@@ -3,7 +3,19 @@
 .editor {
   @include mixins.flex-column;
 
-  gap: 10px;
+  gap: 24px;
   height: 100%;
   padding: 20px;
+}
+
+.panel {
+  @include mixins.flex-row;
+
+  gap: 40px;
+}
+
+.actions {
+  @include mixins.flex-row;
+
+  gap: 8px;
 }
