@@ -1,25 +1,23 @@
 import { useState } from 'react';
 import Markdown from 'react-markdown';
 
-import type { MarkdownEditorFile } from '@/utils/types';
-
 import styles from './Editor.module.scss';
 
 export default function Editor({
-  activeFile,
+  content,
   handleChange,
 }: {
-  activeFile: MarkdownEditorFile;
+  content: string;
   handleChange: (newValue: string) => void;
 }) {
-  const [localContent, setLocalContent] = useState(activeFile.content);
+  const [localContent, setLocalContent] = useState(content);
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.space}>
         <h3>MARKDOWN</h3>
         <textarea
-          defaultValue={activeFile.content}
+          defaultValue={content}
           onChange={(e) => {
             handleChange(e.target.value);
             setLocalContent(e.target.value);

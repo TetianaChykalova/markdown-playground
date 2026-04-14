@@ -1,21 +1,10 @@
 @use 'styles/mixins';
 
-.editor {
-  @include mixins.flex-column;
+.root {
+  @include mixins.flex-row;
 
   gap: 24px;
+  align-items: flex-start;
   height: 100%;
   padding: 20px;
-}
-
-.panel {
-  @include mixins.flex-row;
-
-  gap: 40px;
-}
-
-.actions {
-  @include mixins.flex-row;
-
-  gap: 8px;
 }

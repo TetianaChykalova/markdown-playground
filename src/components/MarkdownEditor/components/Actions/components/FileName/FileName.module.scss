@@ -11,11 +11,13 @@
     padding-inline: 4px;
     border: none;
     border-radius: 4px;
+    font-size: 16px;
     color: var(--text-secondary-color);
     background-color: var(--background-accent-color);
   }
 
   p {
+    font-size: 12px;
     line-height: 100%;
     color: var(--text-secondary-color);
   }
