@@ -1,0 +1,18 @@
+.root {
+  position: relative;
+}
+
+.confirm {
+  top: 30px;
+  right: 0;
+  left: unset;
+  width: 140%;
+
+  p {
+    margin-bottom: 8px;
+  }
+
+  button {
+    margin-bottom: 4px;
+  }
+}

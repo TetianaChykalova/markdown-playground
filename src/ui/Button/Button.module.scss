@@ -3,7 +3,6 @@
 .button {
   @include mixins.flex-row;
 
-  cursor: pointer;
   gap: 4px;
   align-items: center;
   width: fit-content;

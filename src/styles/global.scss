@@ -46,3 +46,27 @@ p {
   font-size: 14px;
   font-weight: 400;
 }
+
+dialog {
+  padding: 4px 8px;
+  border-color: var(--border-dialog-color);
+  border-radius: 4px;
+  color: var(--text-primary-color);
+  background-color: var(--background-dialog-color);
+}
+
+button {
+  cursor: pointer;
+  min-height: 25px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary-color);
+  background-color: var(--background-sections-color);
+  transition: all 0.3s ease;
+
+  &:hover {
+    font-size: 102%;
+  }
+}
