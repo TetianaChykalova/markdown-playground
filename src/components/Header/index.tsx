@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import Sidebar from '../Sidebar';
 import FileName from './components/FileName';
@@ -8,10 +8,29 @@ import styles from './Header.module.scss';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const sidebarRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const menuClickHandler = () => {
     setOpen((prev) => !prev);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Node;
+      const clickOutsideSidebar = sidebarRef.current && !sidebarRef.current.contains(target);
+      const clickOutsideMenu = menuRef.current && !menuRef.current.contains(target);
+
+      if (open && clickOutsideSidebar && clickOutsideMenu) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [open]);
 
   return (
     <>
@@ -23,6 +42,7 @@ export default function Header() {
             })}
             role='button'
             onClick={menuClickHandler}
+            ref={menuRef}
           >
             <div className={styles.line} />
           </div>
@@ -30,7 +50,9 @@ export default function Header() {
         </div>
         <p className={styles.title}>Markdown Playground</p>
       </header>
-      <Sidebar open={open} closeSidebar={() => setOpen(false)} />
+      <div ref={sidebarRef}>
+        <Sidebar open={open} closeSidebar={() => setOpen(false)} />
+      </div>
     </>
   );
 }
