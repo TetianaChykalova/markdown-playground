@@ -17,7 +17,7 @@ export default function DeleteFile() {
   return (
     <div className={styles.root}>
       <Button onClick={() => setOpenConfirmPopup(true)} buttonType='danger-action'>
-        {loading ? 'Deleting file...' : 'Delete file'}
+        {loading ? 'Deleting...' : 'Delete'}
       </Button>
       {openConfirmPopup && (
         <dialog closedby='none' open className={styles.confirm}>

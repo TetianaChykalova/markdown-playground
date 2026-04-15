@@ -2,10 +2,10 @@
 
 %text-base {
   overflow-y: auto;
-  height: calc(100% - 22px - 16px);
-  padding: 24px;
+  height: calc(100% - 29px);
+  padding: 16px;
   border: 1px solid var(--border-color);
-  border-radius: 28px;
+  border-bottom: none;
   font-size: 16px;
   color: var(--text-primary-color);
   background-color: var(--background-editor-color);
@@ -14,7 +14,6 @@
 .wrapper {
   @include mixins.flex-row;
 
-  gap: 20px;
   width: calc(100dvw - 20px * 2);
   height: 100%;
 }
@@ -22,8 +21,10 @@
 .space {
   flex: 0 1 50%;
 
-  h3 {
-    margin-bottom: 16px;
+  .title {
+    margin-block: 4px;
+    padding-inline: 4px;
+    text-align: right;
   }
 
   textarea {
@@ -35,4 +36,6 @@
 
 .preview {
   @extend %text-base;
+
+  border-left: none;
 }

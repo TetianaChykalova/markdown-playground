@@ -15,7 +15,7 @@ export default function Editor({
   return (
     <div className={styles.wrapper}>
       <div className={styles.space}>
-        <h3>MARKDOWN</h3>
+        <h3 className={styles.title}>MARKDOWN</h3>
         <textarea
           defaultValue={content}
           onChange={(e) => {
@@ -25,7 +25,7 @@ export default function Editor({
         />
       </div>
       <div className={styles.space}>
-        <h3>PREVIEW</h3>
+        <h3 className={styles.title}>PREVIEW</h3>
         <div className={styles.preview}>{<Markdown>{localContent}</Markdown>}</div>
       </div>
     </div>

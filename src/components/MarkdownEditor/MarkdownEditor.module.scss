@@ -3,8 +3,10 @@
 .root {
   @include mixins.flex-row;
 
-  gap: 24px;
   align-items: flex-start;
   height: 100%;
-  padding: 20px;
+}
+
+.actions {
+  padding: 12px;
 }

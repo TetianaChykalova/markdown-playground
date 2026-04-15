@@ -23,7 +23,9 @@ export default function MarkdownEditor() {
   return (
     <div className={styles.root}>
       <Editor content={activeFile.content} handleChange={handleChange} key={activeFile.id} />
-      <Actions />
+      <div className={styles.actions}>
+        <Actions />
+      </div>
     </div>
   );
 }
