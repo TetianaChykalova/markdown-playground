@@ -3,6 +3,7 @@
 .wrapper {
   @include mixins.flex-row;
 
+  flex-shrink: 0;
   align-items: center;
   justify-content: space-between;
   height: var(--header-height);

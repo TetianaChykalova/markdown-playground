@@ -3,6 +3,7 @@
 .footer {
   @include mixins.flex-column;
 
+  flex-shrink: 0;
   align-items: flex-end;
   justify-content: center;
   height: var(--footer-height);

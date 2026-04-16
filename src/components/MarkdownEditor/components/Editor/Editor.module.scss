@@ -25,6 +25,7 @@
     margin-block: 4px;
     padding-inline: 4px;
     text-align: right;
+    text-transform: uppercase;
   }
 
   textarea {
@@ -38,4 +39,87 @@
   @extend %text-base;
 
   border-left: none;
+  font-size: 14px;
+  font-weight: 300;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  img {
+    margin: 16px 0 8px;
+    font-size: 700px;
+    font-weight: 600;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  h4 {
+    font-size: 16px;
+  }
+
+  h5 {
+    font-size: 14px;
+  }
+
+  h6 {
+    font-size: 12px;
+  }
+
+  p {
+    margin-block: 4px;
+  }
+
+  strong {
+    font-weight: 800;
+  }
+
+  ol,
+  ul {
+    padding-left: 24px;
+  }
+
+  blockquote {
+    quotes: '\201C' '\201D' '\2018' '\2019';
+    margin: 16px 0;
+    padding: 8px 12px 4px;
+    border-left: 8px solid var(--border-color);
+    background: var(--background-sidebar-color);
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  code {
+    display: inline-block;
+    padding: 1px 4px;
+    border-radius: 4px;
+    background: var(--background-sections-color);
+  }
+
+  pre code {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+  }
+
+  a {
+    color: var(--text-accent-color);
+    text-decoration: underline;
+  }
 }
