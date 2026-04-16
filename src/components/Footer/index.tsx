@@ -7,6 +7,9 @@ export default function Footer() {
         <a href='https://www.markdownguide.org/basic-syntax/' target='_blank'>
           basic syntax
         </a>
+        <a href='https://www.markdownguide.org/extended-syntax/' target='_blank'>
+          extended syntax
+        </a>
       </div>
     </footer>
   );

@@ -12,7 +12,13 @@
 }
 
 .links {
+  @include mixins.flex-column;
+
+  gap: 4px;
+
   a {
+    font-size: 12px;
     color: var(--text-secondary-color);
+    text-transform: capitalize;
   }
 }
