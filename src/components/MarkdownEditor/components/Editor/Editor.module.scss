@@ -78,7 +78,8 @@
     font-size: 12px;
   }
 
-  p {
+  p,
+  hr {
     margin-block: 4px;
   }
 
@@ -89,6 +90,10 @@
   ol,
   ul {
     padding-left: 24px;
+  }
+
+  dd {
+    padding-left: 8px;
   }
 
   blockquote {
@@ -121,5 +126,26 @@
   a {
     color: var(--text-accent-color);
     text-decoration: underline;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-block: 8px;
+    border: 1px solid var(--border-color);
+  }
+
+  thead,
+  tbody,
+  tr,
+  th,
+  td {
+    border: 1px solid var(--border-color);
+  }
+
+  th,
+  td {
+    padding: 8px;
+    text-align: left;
   }
 }
