@@ -8,4 +8,6 @@
 
 .content {
   flex: 1 0 auto;
+  min-height: 0;
+  max-height: calc(100dvh - var(--footer-height) - var(--header-height));
 }

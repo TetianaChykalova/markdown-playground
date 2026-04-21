@@ -37,6 +37,7 @@ export default function Editor({
       <div className={styles.space}>
         <h3 className={styles.title}>markdown</h3>
         <textarea
+          id='markdown-editor'
           defaultValue={content}
           onChange={(e) => {
             handleChange(e.target.value);
