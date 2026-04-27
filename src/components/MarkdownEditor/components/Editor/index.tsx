@@ -7,7 +7,9 @@ import MarkdownItMark from 'markdown-it-mark';
 import MarkdownItSub from 'markdown-it-sub';
 import MarkdownItSup from 'markdown-it-sup';
 import MarkdownItTaskLists from 'markdown-it-task-lists';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+import { scrollSync } from '@/utils/helpers';
 
 import styles from './Editor.module.scss';
 
@@ -19,6 +21,11 @@ export default function Editor({
   handleChange: (newValue: string) => void;
 }) {
   const [localContent, setLocalContent] = useState(content);
+
+  useEffect(() => {
+    const scroll = scrollSync("[data-scroll='sync']");
+    return scroll;
+  }, []);
 
   const md = new MarkdownIt({
     linkify: true,
@@ -43,11 +50,12 @@ export default function Editor({
             handleChange(e.target.value);
             setLocalContent(e.target.value);
           }}
+          data-scroll='sync'
         />
       </div>
       <div className={styles.space}>
         <h3 className={styles.title}>preview</h3>
-        <div className={styles.preview}>
+        <div className={styles.preview} data-scroll='sync'>
           <div dangerouslySetInnerHTML={{ __html: md.render(localContent) }} />
         </div>
       </div>
