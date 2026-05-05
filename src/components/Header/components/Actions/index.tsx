@@ -8,8 +8,8 @@ export default function Actions() {
   return (
     <div className={styles.root}>
       <SaveFile />
-      <DeleteFile />
       <DownloadFile />
+      <DeleteFile />
     </div>
   );
 }

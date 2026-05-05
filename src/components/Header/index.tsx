@@ -2,7 +2,8 @@ import clsx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
 
 import Sidebar from '../Sidebar';
-import FileName from './components/FileName';
+import Actions from './components/Actions';
+import RenameFile from './components/RenameFile';
 
 import styles from './Header.module.scss';
 
@@ -46,7 +47,8 @@ export default function Header() {
           >
             <div className={styles.line} />
           </div>
-          <FileName />
+          <RenameFile />
+          <Actions />
         </div>
         <p className={styles.title}>Markdown Playground</p>
       </header>

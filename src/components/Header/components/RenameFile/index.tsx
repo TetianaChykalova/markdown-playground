@@ -1,8 +1,8 @@
 import { useMarkdownEditor } from '@/store/store';
 
-import styles from './FileName.module.scss';
+import styles from './RenameFile.module.scss';
 
-export default function FileName() {
+export default function RenameFile() {
   const activeFile = useMarkdownEditor((state) => state.activeFile);
   const renameFile = useMarkdownEditor((state) => state.renameFile);
 
