@@ -1,16 +1,19 @@
 import clsx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
 
-import Sidebar from '../Sidebar';
-import Actions from './components/Actions';
-import RenameFile from './components/RenameFile';
+import Sidebar from '@/components/Sidebar';
 
 import styles from './Header.module.scss';
+import Actions from '@/components/Actions';
+import { useMediaQuery } from 'usehooks-ts';
+import { TABLET_MEDIA_QUERY } from '@/utils/constants';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
+
+  const isTablet = useMediaQuery(TABLET_MEDIA_QUERY);
 
   const menuClickHandler = () => {
     setOpen((prev) => !prev);
@@ -47,8 +50,7 @@ export default function Header() {
           >
             <div className={styles.line} />
           </div>
-          <RenameFile />
-          <Actions />
+          <Actions {...(isTablet && { showRename: false, showDownload: false, showDelete: false })} />
         </div>
         <p className={styles.title}>Markdown Playground</p>
       </header>

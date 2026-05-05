@@ -42,6 +42,7 @@
     "react-dom": "^19.2.4",
     "sass": "^1.98.0",
     "use-debounce": "^10.1.1",
+    "usehooks-ts": "^3.1.1",
     "zustand": "^5.0.12"
   },
   "devDependencies": {

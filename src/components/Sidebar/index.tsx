@@ -5,8 +5,13 @@ import FilesList from './components/FilesList';
 import ToggleTheme from './components/ToggleTheme';
 
 import styles from './Sidebar.module.scss';
+import { useMediaQuery } from 'usehooks-ts';
+import { TABLET_MEDIA_QUERY } from '@/utils/constants';
+import Actions from '../Actions';
 
 export default function Sidebar({ open, closeSidebar }: { open: boolean; closeSidebar: () => void }) {
+  const isTablet = useMediaQuery(TABLET_MEDIA_QUERY);
+
   return (
     <AnimatePresence>
       {open && (
@@ -21,6 +26,12 @@ export default function Sidebar({ open, closeSidebar }: { open: boolean; closeSi
             <div className={styles.files}>
               <AddFile />
               <hr />
+              {isTablet && (
+                <>
+                  <Actions direction='column' showSave={false} />
+                  <hr />
+                </>
+              )}
               <FilesList closeSidebar={closeSidebar} />
             </div>
             <div>
