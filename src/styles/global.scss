@@ -6,6 +6,8 @@
 }
 
 * {
+  scrollbar-color: var(--scroll-primary-color) var(--scroll-secondary-color);
+  scrollbar-width: thin;
   box-sizing: border-box;
   margin: 0;
   padding: 0;

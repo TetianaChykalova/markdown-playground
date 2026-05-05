@@ -12,6 +12,8 @@
   --text-secondary-color: #555;
   --text-accent-color: #3a7a20;
   --text-danger-color: #c0392b;
+  --scroll-primary-color: #ccc;
+  --scroll-secondary-color: #e2e2e2;
 }
 
 [data-theme='dark'] {
@@ -28,6 +30,8 @@
   --text-secondary-color: #888;
   --text-accent-color: #7dc85a;
   --text-danger-color: #c0392b;
+  --scroll-primary-color: #e8e8e8;
+  --scroll-secondary-color: #888;
 }
 
 body {
